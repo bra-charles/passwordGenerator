@@ -3,3 +3,108 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+ @layer base {
+    input[type="checkbox"] {
+        @apply bg-DarkGrey accent-NeonGreen;
+    }
+}
+
+/* Custom styles for the range input */
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 6px;
+    background: #18171F; 
+    cursor: pointer;
+    outline: none;
+    transition: background 0.3s ease;
+}
+
+/* For WebKit browsers (Chrome, Safari) */
+input[type="range"]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 6px;
+    
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 1px solid;
+    background: #E6E5EA;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    transform: translateY(-40%); 
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+    background: #18171F; /* Thumb color on hover */
+    border: 2px solid #A4FFAF;
+    width: 22px;
+    height: 22px;
+}
+
+input[type="range"]::-moz-range-track {
+    width: 100%;
+    height: 8px;
+    background: #18171F; /* Default track color */
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border: 1px solid;
+    background: #E6E5EA;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease; /* Add transition for smooth hover effect */
+    transform: translateY(-10%); /* Adjust vertical alignment */
+}
+
+input[type="range"]::-moz-range-thumb:hover {
+    background: #18171F; /* Thumb color on hover */
+    border: 2px solid #A4FFAF;
+    width: 20px;
+    height: 20px;
+}
+
+input[type="range"]::-ms-track {
+    width: 100%;
+    height: 8px;
+    background: transparent; /* Required for proper track rendering */
+    border-color: transparent;
+    color: transparent;
+}
+
+input[type="range"]::-ms-fill-lower {
+    background: #A4FFAF; /* Dragged part of the track to be NeonGreen    */
+}
+
+input[type="range"]::-ms-fill-upper {
+    background: #18171F; /* Default track color */
+}
+
+input[type="range"]::-ms-thumb {
+    width: 20px;
+    height: 20px;
+    border: 1px solid;
+    background: #E6E5EA;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease; /* Add transition for smooth hover effect */
+    transform: translateY(-40%); /* Adjust vertical alignment */
+}
+
+input[type="range"]::-ms-thumb:hover {
+    background: #18171F; /* Thumb color on hover */
+    border: 2px solid #A4FFAF;
+    width: 22px;
+    height: 22px;
+}
+
+
