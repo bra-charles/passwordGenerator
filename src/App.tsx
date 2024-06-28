@@ -1,35 +1,108 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import copyImage from "./assets/images/icon-copy.svg";
+import arrowRightImage from "./assets/images/icon-arrow-right.svg";
+import PasswordLength from "./components/PasswordLength";
+import IncludeUppercase from "./components/IncludeUppercase";
+import IncludeLowercase from "./components/IncludeLowercase";
+import IncludeNumbers from "./components/IncludeNumbers";
+import IncludeSymbols from "./components/IncludeSymbols";
+import { generatePassword } from "./utils/generatePassword.tsx";
+import {
+  PasswordComplexity,
+  PasswordComplexityConfig,
+} from "./utils/generatePassword.tsx";
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const [password, setPassword] = useState<string | null>(null);
+  const [passwordLength, setPasswordLength] = useState<number>(0);
+  const [includeUppercase, setIncludeUppercase] = useState<boolean>(false);
+  const [includeLowercase, setIncludeLowercase] = useState<boolean>(false);
+  const [includeNumbers, setIncludeNumbers] = useState<boolean>(false);
+  const [includeSymbols, setIncludeSymbols] = useState<boolean>(false);
+  const [copied, setCopied] = useState<boolean>(false); // New state variable for copy status
+
+  function handleGeneratePassword() {
+    const config: PasswordComplexityConfig[] = [
+      { type: PasswordComplexity.includeNumbers, value: includeNumbers },
+      { type: PasswordComplexity.includeUpperCase, value: includeUppercase },
+      { type: PasswordComplexity.includeLowercase, value: includeLowercase },
+      { type: PasswordComplexity.includeSymbols, value: includeSymbols },
+    ];
+
+    const newPassword = generatePassword(passwordLength, config);
+    setPassword(newPassword);
+  }
+
+  function handleCopyClick() {
+    if (password) {
+      navigator.clipboard.writeText(password).then(
+        () => {
+          setCopied(true); // Set copied state to true on success
+          setTimeout(() => setCopied(false), 3000); // Reset copied state after 3 seconds
+        },
+        // (err) => {
+        //   // ... my error handling
+        // }
+      );
+    }
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+    <div
+      className="font-JetBrainsMono flex flex-col gap-4 justify-center
+     items-center min-h-screen bg-VeryDarkGrey text-AlmostWhite"
+    >
+      <div className="text-Grey">Password Generator</div>
+      <div
+        className={`bg-DarkGrey text-AlmostWhite px-4 py-2 
+          break-all flex justify-between items-center w-[22rem] mb-4`}
+      >
+        {password ? (
+          <div className="text-xl">{password}</div>
+        ) : (
+          <div className="text-xl text-gray-600">P4$5W0rD!</div>
+        )}
+        <button onClick={handleCopyClick} className=" flex">
+          {copied && (
+            <span className="text-xl text-NeonGreen mr-1">COPIED</span>
+          )}
+          <img src={copyImage} alt="Copy" className="w-4 h-5 mr-2" />
         </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
 
-export default App
+      <div className="w-[22rem] bg-DarkGrey p-4">
+        <PasswordLength
+          passwordLength={passwordLength}
+          setPasswordLength={setPasswordLength}
+        />
+        <IncludeUppercase
+          includeUppercase={includeUppercase}
+          setIncludeUppercase={setIncludeUppercase}
+        />
+        <IncludeLowercase
+          includeLowercase={includeLowercase}
+          setIncludeLowercase={setIncludeLowercase}
+        />
+        <IncludeNumbers
+          includeNumbers={includeNumbers}
+          setIncludeNumbers={setIncludeNumbers}
+        />
+        <IncludeSymbols
+          includeSymbols={includeSymbols}
+          setIncludeSymbols={setIncludeSymbols}
+        />
+
+        <button
+          onClick={handleGeneratePassword}
+          className="px-4 py-2 bg-NeonGreen text-VeryDarkGrey w-full border border-solid hover:border-NeonGreen hover:text-NeonGreen hover:bg-DarkGrey group transition-all duration-300 uppercase flex gap-3 justify-center items-center"
+        >
+          Generate{" "}
+          <img
+            src={arrowRightImage}
+            className="w-3 h-3 ml-2 transition-colors duration-200 text-current group-hover:text-NeonGreen"
+          />
+        </button>
+      </div>
+    </div>
+  );
+}
