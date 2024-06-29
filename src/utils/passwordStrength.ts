@@ -1,12 +1,11 @@
-import { useState } from "react";
 import {PasswordComplexityConfig} from "./generatePassword"  
  
 // defines password strength
 enum PasswordStrength {
-	tooWeak = 'tooWeak',
-	weak = 'weak',
-	medium = 'medium',
-	strong = 'strong',
+	tooWeak = 'TOO WEAK',
+	weak = 'WEAK',
+	medium = 'MEDIUM',
+	strong = 'STRONG',
 }
 
 function computePasswordStrength(
