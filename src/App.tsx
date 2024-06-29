@@ -39,7 +39,7 @@ export default function App() {
         () => {
           setCopied(true); // Set copied state to true on success
           setTimeout(() => setCopied(false), 3000); // Reset copied state after 3 seconds
-        },
+        }
         // (err) => {
         //   // ... my error handling
         // }
