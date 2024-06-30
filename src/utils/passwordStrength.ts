@@ -47,3 +47,5 @@ function computePasswordStrength(
 
 // console.log(computePasswordStrength(5, config));
 
+export { computePasswordStrength }
+

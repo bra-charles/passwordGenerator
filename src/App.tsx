@@ -6,7 +6,9 @@ import IncludeUppercase from "./components/IncludeUppercase";
 import IncludeLowercase from "./components/IncludeLowercase";
 import IncludeNumbers from "./components/IncludeNumbers";
 import IncludeSymbols from "./components/IncludeSymbols";
+import MainPasswordStrength from "./components/MainPasswordStrength";
 import { generatePassword } from "./utils/generatePassword.tsx";
+
 import {
   PasswordComplexity,
   PasswordComplexityConfig,
@@ -19,7 +21,8 @@ export default function App() {
   const [includeLowercase, setIncludeLowercase] = useState<boolean>(false);
   const [includeNumbers, setIncludeNumbers] = useState<boolean>(false);
   const [includeSymbols, setIncludeSymbols] = useState<boolean>(false);
-  const [copied, setCopied] = useState<boolean>(false); // New state variable for copy status
+  const [copied, setCopied] = useState<boolean>(false);
+  const [strength, setStrength] = useState<string>("");
 
   function handleGeneratePassword() {
     const config: PasswordComplexityConfig[] = [
@@ -91,7 +94,7 @@ export default function App() {
           includeSymbols={includeSymbols}
           setIncludeSymbols={setIncludeSymbols}
         />
-
+        <MainPasswordStrength strength ={strength}  setStrength ={setStrength}/>
         <button
           onClick={handleGeneratePassword}
           className="px-4 py-2 bg-NeonGreen text-VeryDarkGrey w-full border border-solid hover:border-NeonGreen hover:text-NeonGreen hover:bg-DarkGrey group transition-all duration-300 uppercase flex gap-3 justify-center items-center"
