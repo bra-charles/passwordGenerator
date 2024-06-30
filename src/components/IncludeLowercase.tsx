@@ -8,6 +8,7 @@ type IncludeLowercaseProps = {
 const StyledCheckboxContainer = styled.div`
   display: flex;
   align-items: center;
+  gap: 6px;
   margin-bottom: 0.5rem;
 `;
 

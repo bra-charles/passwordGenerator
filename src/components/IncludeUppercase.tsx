@@ -7,10 +7,11 @@ type IncludeUppercaseProps = {
 const StyledCheckboxContainer = styled.div`
   display: flex;
   align-items: center;
+  gap: 6px;
   margin-bottom: 0.5rem; // Use rem for better responsiveness
 `;
 
-const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
+const HiddenCheckbox = styled.input.attrs({ type: "checkbox" })`
   // Hide the default checkbox
   border: 0;
   clip: rect(0 0 0 0);
@@ -28,22 +29,22 @@ const StyledCheckbox = styled.div<{ checked: boolean }>`
   display: inline-block;
   width: 13px;
   height: 13px;
-  background: ${({ checked }) => (checked ? '#A4FFAF' : '#24232C')};
+  background: ${({ checked }) => (checked ? "#A4FFAF" : "#24232C")};
   border: 1px solid;
   border-radius: 1.2px;
   transition: all 150ms;
   position: relative;
-  
+
   &:after {
-    content: '';
+    content: "";
     position: absolute;
     top: 1px;
     left: 3.8px;
     width: 4px;
     height: 9px;
-    border: solid #18171F;
+    border: solid #18171f;
     border-width: 0 2.3px 2.3px 0;
-    transform: ${({ checked }) => (checked ? 'rotate(45deg)' : 'rotate(0deg)')};
+    transform: ${({ checked }) => (checked ? "rotate(45deg)" : "rotate(0deg)")};
     opacity: ${({ checked }) => (checked ? 1 : 0)};
     transition: all 150ms;
   }

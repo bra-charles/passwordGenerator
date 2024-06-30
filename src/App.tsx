@@ -80,7 +80,7 @@ export default function App() {
           {copied && (
             <span className="text-xl text-NeonGreen mr-1">COPIED</span>
           )}
-          <CopyIcon className="text-NeonGreen hover:text-AlmostWhite w-4 h-5 mr-2" />
+          <CopyIcon className="text-NeonGreen hover:text-AlmostWhite w-4 h-5 mr-1" />
         </button>
       </div>
 
@@ -110,7 +110,7 @@ export default function App() {
           onClick={handleGeneratePassword}
           className="px-4 py-2 bg-NeonGreen text-VeryDarkGrey w-full border border-solid
            hover:border-NeonGreen hover:text-NeonGreen hover:bg-DarkGrey group transition-all 
-           duration-300 uppercase flex gap-3 justify-center items-center  mb-1"
+           duration-300 uppercase flex gap-3 justify-center items-center  mb-1 shadow-lg"
         >
           Generate{" "}
           <ArrowRightIcon

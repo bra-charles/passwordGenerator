@@ -2,7 +2,7 @@ import React from "react";
 import { PasswordStrength } from "../utils/passwordStrength";
 
 interface PasswordStrengthProps {
-  strength: PasswordStrength | "" ; // "tooWeak", "weak", "medium", or "strong"
+  strength: PasswordStrength | ""; // "tooWeak", "weak", "medium", or "strong"
 }
 
 const PasswordStrengthMeter: React.FC<PasswordStrengthProps> = ({
@@ -10,7 +10,12 @@ const PasswordStrengthMeter: React.FC<PasswordStrengthProps> = ({
 }) => {
   return (
     <div className="password-strength-meter">
-      <span style={{ fontSize: '18px' }} className={`strength-text ${strength}`}>{strength.toString()}</span>
+      <span
+        style={{ fontSize: "19px" }}
+        className={`strength-text ${strength}`}
+      >
+        {strength.toString()}
+      </span>
     </div>
   );
 };
