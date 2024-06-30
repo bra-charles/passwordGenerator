@@ -21,14 +21,14 @@ export default {
       },
     },
   },
-  variants: {
-    extend: {
-      filter: ['hover', 'group-hover'],
-      brightness: ['hover', 'group-hover'],
-      invert: ['hover', 'group-hover'],
-      textColor: ['hover', 'group-hover'], // Ensure textColor can be used with group-hover
-    },
-  },
+  // variants: {
+  //   extend: {
+  //     filter: ['hover', 'group-hover'],
+  //     brightness: ['hover', 'group-hover'],
+  //     invert: ['hover', 'group-hover'],
+  //     textColor: ['hover', 'group-hover'], // Ensure textColor can be used with group-hover
+  //   },
+  // },
   plugins: [],
 }
 

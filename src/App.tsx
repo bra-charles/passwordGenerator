@@ -1,6 +1,6 @@
 import { useState } from "react";
-import copyImage from "./assets/images/icon-copy.svg";
-import arrowRightImage from "./assets/images/icon-arrow-right.svg";
+import CopyIcon from "./components/CopyIconSvg"; // Adjust the path as necessary
+import ArrowRightIcon from "./components/ArrowRightSvg"; // Adjust the path as necessary
 import PasswordLength from "./components/PasswordLength";
 import IncludeUppercase from "./components/IncludeUppercase";
 import IncludeLowercase from "./components/IncludeLowercase";
@@ -65,11 +65,14 @@ export default function App() {
         ) : (
           <div className="text-xl text-gray-600">P4$5W0rD!</div>
         )}
-        <button onClick={handleCopyClick} className=" flex">
+        <button
+          onClick={handleCopyClick}
+          className="flex items-center hover:text-AlmostWhite"
+        >
           {copied && (
             <span className="text-xl text-NeonGreen mr-1">COPIED</span>
           )}
-          <img src={copyImage} alt="Copy" className="w-4 h-5 mr-2" />
+          <CopyIcon className="text-NeonGreen hover:text-AlmostWhite w-4 h-5 mr-2" />
         </button>
       </div>
 
@@ -94,15 +97,17 @@ export default function App() {
           includeSymbols={includeSymbols}
           setIncludeSymbols={setIncludeSymbols}
         />
-        <MainPasswordStrength strength ={strength}  setStrength ={setStrength}/>
+        {/* <MainPasswordStrength strength ={strength}  setStrength ={setStrength}/> */}
         <button
           onClick={handleGeneratePassword}
-          className="px-4 py-2 bg-NeonGreen text-VeryDarkGrey w-full border border-solid hover:border-NeonGreen hover:text-NeonGreen hover:bg-DarkGrey group transition-all duration-300 uppercase flex gap-3 justify-center items-center"
+          className="px-4 py-2 bg-NeonGreen text-VeryDarkGrey w-full border border-solid
+           hover:border-NeonGreen hover:text-NeonGreen hover:bg-DarkGrey group transition-all 
+           duration-300 uppercase flex gap-3 justify-center items-center"
         >
           Generate{" "}
-          <img
-            src={arrowRightImage}
-            className="w-3 h-3 ml-2 transition-colors duration-200 text-current group-hover:text-NeonGreen"
+          <ArrowRightIcon
+            className="w-3 h-3 ml-2 transition-colors duration-200 
+             text-VeryDarkGrey group-hover:text-NeonGreen"
           />
         </button>
       </div>
