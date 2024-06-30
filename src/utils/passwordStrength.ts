@@ -6,6 +6,7 @@ export enum PasswordStrength {
   weak = "WEAK",
   medium = "MEDIUM",
   strong = "STRONG",
+  
 }
 
 export interface PasswordStrengthData {

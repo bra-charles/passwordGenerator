@@ -1,26 +1,43 @@
-import React, { useState } from "react";
+import styled from "styled-components";
 import PasswordStrengthMeter from "./PasswordStrengthMeter";
 import StrengthMeterBox from "./PasswordStrengthColorBox";
-import { PasswordComplexityConfig } from "../utils/generatePassword";
-import { computePasswordStrength } from "../utils/passwordStrength";
+import { PasswordStrengthData } from "../utils/passwordStrength";
 
-export default function MainPasswordStrength(
-    config: PasswordComplexityConfig[]
-) {
-  const [password, setPassword] = useState("");
-  const [strength, setStrength] = useState<string>("");
-  const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setPassword(event.target.value);
-    setStrength(computePasswordStrength(event.target.value.length, config));
-  };
+const Container = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  margin: 1rem 0;
+  background-color: #18171f;
+  color: #e6e5ea;
+`;
 
-  return (
-    <div>
-      <input type="text" value={password} onChange={handlePasswordChange} />
-      <PasswordStrengthMeter strength={strength} />
-      <StrengthMeterBox strength={strength} />
-    </div>
-  );
+interface MainPasswordStrengthProps {
+  strengthData: PasswordStrengthData | null;
 }
 
+const MainPasswordStrength: React.FC<MainPasswordStrengthProps> = ({
+  strengthData,
+}) => {
+  const defaultStrength = ""; // Placeholder value when no password data
+  const defaultColor = "transparent";
 
+  return (
+    <Container>
+      <span style={{ color: "#817D92", fontSize: 15 }}>STRENGTH</span>
+      <div style={{ display: "flex", gap: 7, marginTop: 8}}>
+        <PasswordStrengthMeter
+          strength={strengthData?.strength || defaultStrength}
+        />
+        <StrengthMeterBox
+          color={strengthData?.color || defaultColor}
+          numberOfColoredBoxes={strengthData?.boxLength || 0} // Set to 0 for no colored boxes
+        />
+      </div>
+    </Container>
+  );
+};
+
+export default MainPasswordStrength;
