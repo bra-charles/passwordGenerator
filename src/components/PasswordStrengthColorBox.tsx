@@ -1,19 +1,35 @@
-import React from 'react';
+import React from "react";
+import styled from "styled-components";
 
 interface StrengthMeterBoxProps {
-  strength: string; // "tooWeak", "weak", "medium", or "strong"
+  numberOfColoredBoxes: number;
+  color: string;
+}
+interface StyledDivProps {
+  backgroundColor: string | null;
 }
 
-const StrengthMeterBox: React.FC<StrengthMeterBoxProps> = ({ strength }) => {
-  const color: { [key: string]: string } = {
-    tooWeak: '#F64A4A', // Red
-    weak: '#FB7C58', // Orange
-    medium: '#F8CD65', // Orange-ish yellow
-    strong: '#A4FFAF', // Green
-  };
+const StyledDiv = styled.div<StyledDivProps>`
+  display: inline-block;
+  width: 8px;
+  height: 24px;
+  margin: 3px;
+  background-color: ${(props) => props.backgroundColor || "transparent"};
+  border: ${(props) => (props.backgroundColor ? "none" : "2px solid #E6E5EA")};
+`;
 
-  return <div className="strength-meter-box" style={{ backgroundColor: color[strength] }} />;
+const StrengthMeterBox: React.FC<StrengthMeterBoxProps> = ({
+  numberOfColoredBoxes,
+  color,
+}) => {
+  // Ensure length is between 0 and 4
+  const numBoxes = Math.min(Math.max(numberOfColoredBoxes, 0), 4);
+
+  const boxes = Array.from({ length: 4 }, (_, index) => (
+    <StyledDiv key={index} backgroundColor={index < numBoxes ? color : null} />
+  ));
+
+  return <div>{boxes}</div>;
 };
 
 export default StrengthMeterBox;
-

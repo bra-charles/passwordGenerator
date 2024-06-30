@@ -26,7 +26,9 @@ export default function App() {
   const [includeNumbers, setIncludeNumbers] = useState<boolean>(false);
   const [includeSymbols, setIncludeSymbols] = useState<boolean>(false);
   const [copied, setCopied] = useState<boolean>(false);
-  const [strength, setStrength] = useState<string>("");
+  const [strengthData, setStrengthData] = useState<PasswordStrengthData | null>(
+    null
+  );
 
   function handleGeneratePassword() {
     const config: PasswordComplexityConfig[] = [
@@ -37,8 +39,9 @@ export default function App() {
     ];
 
     const newPassword = generatePassword(passwordLength, config);
+
     setPassword(newPassword);
-		setStrengthData(computePasswordStrength(passwordLength, config));
+    setStrengthData(computePasswordStrength(passwordLength, config));
   }
 
   function handleCopyClick() {
@@ -102,12 +105,12 @@ export default function App() {
           includeSymbols={includeSymbols}
           setIncludeSymbols={setIncludeSymbols}
         />
-        {/* <MainPasswordStrength strength ={strength}  setStrength ={setStrength}/> */}
+        <MainPasswordStrength strengthData={strengthData} />
         <button
           onClick={handleGeneratePassword}
           className="px-4 py-2 bg-NeonGreen text-VeryDarkGrey w-full border border-solid
            hover:border-NeonGreen hover:text-NeonGreen hover:bg-DarkGrey group transition-all 
-           duration-300 uppercase flex gap-3 justify-center items-center"
+           duration-300 uppercase flex gap-3 justify-center items-center  mb-1"
         >
           Generate{" "}
           <ArrowRightIcon
