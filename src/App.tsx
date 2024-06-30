@@ -13,6 +13,10 @@ import {
   PasswordComplexity,
   PasswordComplexityConfig,
 } from "./utils/generatePassword.tsx";
+import {
+  PasswordStrengthData,
+  computePasswordStrength,
+} from "./utils/passwordStrength.ts";
 
 export default function App() {
   const [password, setPassword] = useState<string | null>(null);
@@ -34,6 +38,7 @@ export default function App() {
 
     const newPassword = generatePassword(passwordLength, config);
     setPassword(newPassword);
+		setStrengthData(computePasswordStrength(passwordLength, config));
   }
 
   function handleCopyClick() {
