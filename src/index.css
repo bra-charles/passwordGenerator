@@ -4,7 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
- @layer base {
+@layer base {
     input[type="checkbox"] {
         @apply bg-DarkGrey accent-NeonGreen;
     }
@@ -16,7 +16,7 @@ input[type="range"] {
     appearance: none;
     width: 100%;
     height: 6px;
-    background: #18171F; 
+    background: linear-gradient(to right, #A4FFAF 0%, #A4FFAF 0%, #18171F 0%, #18171F 100%);
     cursor: pointer;
     outline: none;
     transition: background 0.3s ease;
@@ -26,7 +26,7 @@ input[type="range"] {
 input[type="range"]::-webkit-slider-runnable-track {
     width: 100%;
     height: 6px;
-    
+    background: transparent;
 }
 
 input[type="range"]::-webkit-slider-thumb {
@@ -39,7 +39,7 @@ input[type="range"]::-webkit-slider-thumb {
     border-radius: 50%;
     cursor: pointer;
     transition: background 0.3s ease, transform 0.3s ease;
-    transform: translateY(-40%); 
+    transform: translateY(-40%);
 }
 
 input[type="range"]::-webkit-slider-thumb:hover {
@@ -49,10 +49,11 @@ input[type="range"]::-webkit-slider-thumb:hover {
     height: 22px;
 }
 
+/* For Firefox */
 input[type="range"]::-moz-range-track {
     width: 100%;
-    height: 8px;
-    background: #18171F; 
+    height: 6px;
+    background: transparent;
 }
 
 input[type="range"]::-moz-range-thumb {
@@ -62,31 +63,32 @@ input[type="range"]::-moz-range-thumb {
     background: #E6E5EA;
     border-radius: 50%;
     cursor: pointer;
-    transition: background 0.3s ease, transform 0.3s ease; 
+    transition: background 0.3s ease, transform 0.3s ease;
     transform: translateY(-10%);
 }
 
 input[type="range"]::-moz-range-thumb:hover {
     background: #18171F;
     border: 2px solid #A4FFAF;
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
 }
 
+/* For Microsoft Edge and Internet Explorer */
 input[type="range"]::-ms-track {
     width: 100%;
-    height: 8px;
-    background: transparent; /* Required for proper track rendering */
+    height: 6px;
+    background: transparent;
     border-color: transparent;
     color: transparent;
 }
 
 input[type="range"]::-ms-fill-lower {
-    background: #A4FFAF; /* Dragged part of the track to be NeonGreen    */
+    background: #A4FFAF;
 }
 
 input[type="range"]::-ms-fill-upper {
-    background: #18171F; /* Default track color */
+    background: #18171F;
 }
 
 input[type="range"]::-ms-thumb {
@@ -97,7 +99,7 @@ input[type="range"]::-ms-thumb {
     border-radius: 50%;
     cursor: pointer;
     transition: background 0.3s ease, transform 0.3s ease;
-    transform: translateY(-40%); 
+    transform: translateY(-40%);
 }
 
 input[type="range"]::-ms-thumb:hover {
@@ -106,5 +108,3 @@ input[type="range"]::-ms-thumb:hover {
     width: 22px;
     height: 22px;
 }
-
-

@@ -11,7 +11,7 @@ const PasswordStrengthMeter: React.FC<PasswordStrengthProps> = ({
   return (
     <div className="password-strength-meter">
       <span
-        style={{ fontSize: "19px" }}
+        style={{ fontSize: "1.125rem", marginTop: "12px" }}
         className={`strength-text ${strength}`}
       >
         {strength.toString()}

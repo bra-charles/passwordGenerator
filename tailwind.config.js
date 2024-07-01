@@ -6,6 +6,7 @@ export default {
       fontFamily: {
         JetBrainsMono: ["JetBrains Mono", "monospace"],
       },
+
       colors: {
         NeonGreen: "#A4FFAF",
         AlmostWhite: "#E6E5EA",

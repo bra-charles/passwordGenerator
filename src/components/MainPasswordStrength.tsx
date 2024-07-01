@@ -9,7 +9,7 @@ const Container = styled.div`
   justify-content: space-between;
   width: 100%;
   padding: 0.3rem 1rem;
-  margin: 1.4rem 0;
+  margin: 1.2rem 0;
   background-color: #18171f;
   color: #e6e5ea;
 `;
@@ -26,8 +26,8 @@ const MainPasswordStrength: React.FC<MainPasswordStrengthProps> = ({
 
   return (
     <Container>
-      <span style={{ color: "#817D92", fontSize: 15 }}>STRENGTH</span>
-      <div style={{ display: "flex", gap: 7, marginTop: 8 }}>
+      <span style={{ color: "#817D92", fontSize: "16px" }}>STRENGTH</span>
+      <div style={{ display: "flex", gap: "7px", marginTop: "6px" }}>
         <PasswordStrengthMeter
           strength={strengthData?.strength || defaultStrength}
         />

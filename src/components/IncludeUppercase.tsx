@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 type IncludeUppercaseProps = {
   includeUppercase: boolean;
   setIncludeUppercase: (include: boolean) => void;
@@ -8,7 +9,12 @@ const StyledCheckboxContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 6px;
-  margin-bottom: 0.5rem; // Use rem for better responsiveness
+  margin-bottom: 0.5rem;
+
+  @media (min-width: 1024px) {
+    gap: 8px; // Adjust gap for larger screens
+    margin-bottom: 0.6rem; // Adjust margin for larger screens
+  }
 `;
 
 const HiddenCheckbox = styled.input.attrs({ type: "checkbox" })`
@@ -30,10 +36,15 @@ const StyledCheckbox = styled.div<{ checked: boolean }>`
   width: 13px;
   height: 13px;
   background: ${({ checked }) => (checked ? "#A4FFAF" : "#24232C")};
-  border: 1px solid;
-  border-radius: 1.2px;
+  border: 1.8px solid #e6e5ea;
   transition: all 150ms;
   position: relative;
+
+  &:hover {
+    border-color: #a4ffaf;
+    width: 14px;
+    height: 14px;
+  }
 
   &:after {
     content: "";
@@ -53,6 +64,7 @@ const StyledCheckbox = styled.div<{ checked: boolean }>`
 const StyledLabel = styled.label`
   cursor: pointer; // Indicate clickable behavior
   margin-left: 0.5rem; // Use rem or em for spacing
+  font-size: 1rem;
 `;
 
 export default function IncludeUppercase({
