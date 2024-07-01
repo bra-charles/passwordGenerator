@@ -80,7 +80,7 @@ export default function App() {
           className="flex items-center hover:text-AlmostWhite"
         >
           {copied && (
-            <span className="text-xs md:text-xs lg:text-xs text-NeonGreen mr-2 md:mr-3 lg:mr-3">
+            <span className="text-xs md:text-xs lg:text-sm text-NeonGreen mr-2 md:mr-3 lg:mr-3">
               COPIED
             </span>
           )}
