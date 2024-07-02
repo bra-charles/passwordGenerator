@@ -33,8 +33,8 @@ Users should be able to:
 - See hover and focus states for all interactive elements on the page
 
 ### Screenshot
-![](./assets/images/screenshot-desktop.png)
-![](./assets/images/screenshot-mobile.png)
+![Password Generator-Desktop](./assets/images/screenshot-desktop.png)
+![Password Generator-Mobile](./assets/images/screenshot-mobile.png)
   
 
 ### Built with
