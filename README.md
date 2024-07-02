@@ -1,24 +1,26 @@
 
-# Password Generator App 
-This project is a password generator app built with React, TypeScript,Styled-Component and Tailwind CSS. Users can generate secure passwords by selecting desired character types (uppercase, lowercase, numbers, symbols) and customizing the password length. The app also displays the password strength visually. 
+<h1 align="center">Password Generator</h1>
+A beautiful password generator app built with React, TypeScript,Styled-Component and Tailwind CSS.  
 
 ## Table Of Contents
 
   - [Overview](#overview)
+  - [Links](#links)
   - [Challenge](#challenge)
   - [Screenshot](#screenshot)
-  - [Links](#links)
   - [Built with](#built-with)
   - [Getting started](#getting-started)
-  - [Project structure](#project-structure)
   - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
+  - [Project structure](#project-structure)
   - [Author](#author)
 
 
  
 ### Overview
 This password generator app provides users with a secure and convenient way to create strong passwords.
+
+### Links
+- [see live](https://password-generator-005c.netlify.app)
 
 ### The challenge
 
@@ -31,9 +33,9 @@ Users should be able to:
 - See hover and focus states for all interactive elements on the page
 
 ### Screenshot
-
-### Links
-- [see live]()  
+![](./assets/images/screenshot-desktop.png)
+![](./assets/images/screenshot-mobile.png)
+  
 
 ### Built with
 - [React](https://react.dev/): A JavaScript library for building user interfaces.
@@ -42,12 +44,22 @@ Users should be able to:
 - [Tailwind CSS](https://tailwindcss.com/docs/guides/vite): A utility-first CSS framework for rapid UI development.
 
 ### Getting Started
-- Clone this repository.
+ 
+ Follow these steps to run the project locally:
+
+- Clone the repository
+  - git clone https://github.com/bra-charles/passwordgenerator.git
+- Navigate to the project directory
+  - cd passwordgenerator
 - Install dependencies:
     - npm install
 - Start the development server:
     - npm run dev        
- This will start the development server and open the app in your browser, typically at http://localhost:5173/.
+  This will start the development server and open the app in your browser, typically at http://localhost:5173/.
+
+
+ ### What I Learned
+  I learned to leverage styled-components for creating beautiful, maintainable styles in my React components. This included using CSS-in-JS techniques for dynamic styling, implementing responsive design with media queries, and creating reusable, modular components. This experience enhanced my skills in building scalable and visually appealing applications.
 
 
 ### Project Structure
@@ -74,6 +86,7 @@ Users should be able to:
 - tailwind.config.js: Tailwind CSS configuration.
 - package.json: Project dependencies and scripts.
 - README.md: This file (you're reading it now!)
+
 
 ### Author
   Charles Adu Nkansah
