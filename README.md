@@ -35,7 +35,7 @@ Users should be able to:
 ### Screenshot
 ![Password Generator-Desktop](src/assets/images/screenshot-desktop.png)
 <p align="center">
-  <img src="src/assets/images/screenshot-mobile.png" alt="Password Generator Screenshot" width="400"/>
+  <img src="src/assets/images/screenshot-mobile.png" alt="Password Generator Screenshot" width="300"/>
 </p>
 
   
