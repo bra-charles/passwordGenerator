@@ -36,7 +36,8 @@ const StyledCheckbox = styled.div<{ checked: boolean }>`
   width: 13px;
   height: 13px;
   background: ${({ checked }) => (checked ? "#A4FFAF" : "#24232C")};
-  border: 1.8px solid #e6e5ea;
+  border: 0.5px solid;
+  border-color:${({ checked }) => (checked ? "#A4FFAF" : "#E6E5EA")};
   transition: all 150ms;
   position: relative;
 
@@ -50,7 +51,7 @@ const StyledCheckbox = styled.div<{ checked: boolean }>`
     content: "";
     position: absolute;
     top: 1px;
-    left: 3.8px;
+    left: 4.2px;
     width: 4px;
     height: 9px;
     border: solid #18171f;
