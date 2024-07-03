@@ -7,12 +7,12 @@ import IncludeLowercase from "./components/IncludeLowercase";
 import IncludeNumbers from "./components/IncludeNumbers";
 import IncludeSymbols from "./components/IncludeSymbols";
 import MainPasswordStrength from "./components/MainPasswordStrength";
-import { generatePassword } from "./utils/generatePassword.tsx";
+import { generatePassword } from "./utils/generatePassword.ts";
 
 import {
   PasswordComplexity,
   PasswordComplexityConfig,
-} from "./utils/generatePassword.tsx";
+} from "./utils/generatePassword.ts";
 import {
   PasswordStrengthData,
   computePasswordStrength,
